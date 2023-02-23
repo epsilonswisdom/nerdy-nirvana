@@ -54,3 +54,19 @@ class Vote extends Model {
     Vote.belongsTo(models.Profile, { foreignKey: 'profileId'})
   }
 }
+
+class Profile extends Model {
+  static associate(models) {
+    Profile.belongsTo(models.User, { foreignKey: 'userId'})
+
+    Profile.hasMany(models.Vote, {
+      as: 'votesGiven',
+      foreignKey: 'voterId'
+    })
+    
+    Profile.hasMany(models.Vote, {
+      as: 'votesReceived',
+      foreignKey: 'profileId'
+    })
+  }
+}
