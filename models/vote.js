@@ -46,3 +46,11 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Vote;
 };
+
+class Vote extends Model {
+  static associate(models) {
+    //define the association here
+    Vote.belongsTo(models.Profile, { foreignKey: 'voterId'})
+    Vote.belongsTo(models.Profile, { foreignKey: 'profileId'})
+  }
+}
