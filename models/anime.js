@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Anime.belongsTo(models.Profile, { foreignKey: 'profileId'})
+      Anime.belongsTo(models.Profile, {foreignKey: 'voterId'})
       
     }
   }
