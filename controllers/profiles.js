@@ -1,10 +1,12 @@
-const { Profile } = require('../models')
+const { Profile, Vote } = require('../models')
 const cloudinary = require('cloudinary').v2
 
 async function index(req, res) {
   try {
-    const profiles = await Profile.findAll()
-    res.json(profiles)
+    const profiles = await Profile.findAll({
+      include: [{ model: Vote, as: 'votesReceived'}],
+    })
+    res.status(200).json(profiles)
   } catch (error) {
     console.log(error)
     res.status(500).json({ err: error })

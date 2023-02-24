@@ -13,9 +13,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         onDelete: 'CASCADE',
-        references: {
-          model: 'Profiles',
-          key: 'id'
+        validate: {
+          min: 0,
+          max: 5,
         },
       },
       profileId: {
@@ -34,7 +34,7 @@ module.exports = {
         references: {
           model: 'Profiles',
           key: 'id',
-        },
+        }
       },
       createdAt: {
         allowNull: false,
