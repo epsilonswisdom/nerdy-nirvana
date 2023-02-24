@@ -11,5 +11,5 @@ async function castVote(req, res) {
 }
 
 module.exports = {
-  castVote
+  castVote,
 }
