@@ -1,4 +1,4 @@
-const { Anime, Profile } = require('../models')
+const { Anime, Profile, Comment } = require('../models')
 
 async function create(req, res) {
   try {

@@ -15,6 +15,16 @@ module.exports = (sequelize, DataTypes) => {
         as: 'votesReceived',
         foreignKey: 'profileId'
       })
+
+      Profile.hasMany(models.Comment, {
+        foreignKey: 'profileId',
+        as: 'comments'
+      })
+
+      Profile.hasMany(models.Anime, {
+        foreignKey: 'profileId',
+        as: 'animes'
+      })
     }
   }
 
