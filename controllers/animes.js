@@ -22,6 +22,31 @@ async function index(req, res) {
   }
 }
 
+async function update(req, res) {
+  try {
+    const anime = await Anime.findbyPk(req.params.id)
+    if (anime.profileId === req.user.profile.id){
+      anime.set(req.body)
+      await anime.save()
+    }
+    res.status(200).json(anime)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
+async function deleteAnime(req, res) {
+  try {
+    const anime = await Anime.findbyPk(req.params.id)
+    if (anime.profileId === req.user.profile.id){
+      await anime.destroy()
+    }
+    res.status(200).json(anime)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 async function addComment(req, res) {
   try {
     req.body.animeId = req.params.id
@@ -37,4 +62,6 @@ module.exports = {
   create,
   index,
   addComment,
+  update,
+  delete: deleteAnime,
 }
