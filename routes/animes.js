@@ -11,6 +11,8 @@ router.get('/', animesCtrl.index)
 /*--------Protected Routes ------*/
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, animesCtrl.create)
+router.put('/:id', checkAuth, animesCtrl.update)
+router.delete('/:id', checkAuth, animesCtrl.delete)
 router.post('/:id/comments', checkAuth, animesCtrl.addComment)
 
 module.exports = router
