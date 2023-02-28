@@ -1,5 +1,5 @@
 const { Anime, Profile, Comment } = require('../models')
-const comment = require('../models/comment')
+
 async function create(req, res) {
   try {
     req.body.profileId = req.user.profile.id
@@ -13,7 +13,7 @@ async function create(req, res) {
 async function index(req, res) {
   try {
     const animes = await Anime.findAll({
-      include: [{ model: Comment, as: 'comments'}]
+      // include: [{model: Profile, as: 'profileId'}],
     })
   
     res.status(200).json(animes)
