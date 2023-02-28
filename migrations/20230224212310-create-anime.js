@@ -38,15 +38,6 @@ module.exports = {
           key: 'id',
         },
       },
-      voterId: {
-        type:Sequelize.INTEGER,
-        allowNull: false,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Profiles',
-          key: 'id',
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

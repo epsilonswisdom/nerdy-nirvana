@@ -46,15 +46,6 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
-    voterId: {
-      type:DataTypes.INTEGER,
-      allowNull: false,
-      onDelete: 'CASCADE',
-      references: {
-        model: 'Profiles',
-        key: 'id',
-      }
-    },
   }, {
     sequelize,
     modelName: 'Anime',
