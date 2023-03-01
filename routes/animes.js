@@ -14,6 +14,6 @@ router.get('/', animesCtrl.index)
 router.post('/', checkAuth, animesCtrl.create)
 router.put('/:id', checkAuth, animesCtrl.update)
 router.delete('/:id', checkAuth, animesCtrl.delete)
-router.post('/:id/comments', checkAuth, animesCtrl.addComment)
+
 
 module.exports = router

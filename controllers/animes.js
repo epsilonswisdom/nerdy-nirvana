@@ -1,4 +1,4 @@
-const { Anime, Comment } = require('../models')
+const { Anime } = require('../models')
 
 async function create(req, res) {
   try {
@@ -47,21 +47,10 @@ async function deleteAnime(req, res) {
   }
 }
 
-async function addComment(req, res) {
-  try {
-    req.body.animeId = req.params.id
-    req.body.profileId = req.user.profile.id
-    const comment = await Comment.create(req.body)
-    res.status(200).json(comment)
-  } catch (error) {
-    res.status(500).json(error)
-  }
-}
 
 module.exports = {
   create,
   index,
-  addComment,
   update,
   delete: deleteAnime,
 }
