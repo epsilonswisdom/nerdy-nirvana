@@ -13,7 +13,7 @@ async function create(req, res) {
 async function index(req, res) {
   try {
     const animes = await Anime.findAll({
-      include: [{model: Comment, as: 'commentscd '}],
+      
     })
   
     res.status(200).json(animes)

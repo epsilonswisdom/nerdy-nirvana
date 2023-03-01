@@ -5,11 +5,12 @@ const middleware = require('../middleware/auth.js')
 const { decodeUserFromToken, checkAuth } = middleware
 
 /*----------Public Routes --------*/
-router.get('/', animesCtrl.index)
 
 
 /*--------Protected Routes ------*/
+
 router.use(decodeUserFromToken)
+router.get('/', animesCtrl.index)
 router.post('/', checkAuth, animesCtrl.create)
 router.put('/:id', checkAuth, animesCtrl.update)
 router.delete('/:id', checkAuth, animesCtrl.delete)
