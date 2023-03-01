@@ -12,10 +12,7 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-    const animes = await Anime.findAll({
-      
-    })
-  
+    const animes = await Anime.findAll({})
     res.status(200).json(animes)
   } catch (error) {
     res.status(500).json(error)
